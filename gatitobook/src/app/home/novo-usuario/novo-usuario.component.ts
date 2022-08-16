@@ -22,7 +22,7 @@ export class NovoUsuarioComponent implements OnInit {
       fullName: ['', [Validators.required, Validators.minLength(4)]],
       email: ['', [Validators.required, Validators.email]],
       userName: ['', [Validators.required, minusculoValidator]],
-      password: ['',],
+      password: ['', [Validators.required, Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/)]],
     });
   }
 

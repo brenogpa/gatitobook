@@ -48,8 +48,8 @@
       ></app-mensagem>
       <app-mensagem
       *ngIf="
-      novoUsuarioForm.get('userName')?.errors?.['minusculo'] &&
-      novoUsuarioForm.get('userName')?.touched
+        novoUsuarioForm.get('userName')?.errors?.['minusculo'] &&
+        novoUsuarioForm.get('userName')?.touched
       "
       mensagem="O usuário só deve conter letras minúsculas"
     ></app-mensagem>
@@ -61,6 +61,20 @@
       formControlName="password"
       type="password"
     />
+    <app-mensagem
+      *ngIf="
+        novoUsuarioForm.get('password')?.errors?.['required'] &&
+        novoUsuarioForm.get('password')?.touched
+      "
+      mensagem="Campo obrigatório"
+    ></app-mensagem>
+    <app-mensagem
+      *ngIf="
+        novoUsuarioForm.get('password')?.errors?.['pattern'] &&
+        novoUsuarioForm.get('password')?.touched
+      "
+      mensagem="A senha deve conter pelo menos 6 dígitos, 1 caracter maiúsculo e 1 minúsculo"
+    ></app-mensagem>
   </div>
 
   <button class="btn btn-primary btn-block">Cadastrar</button>
