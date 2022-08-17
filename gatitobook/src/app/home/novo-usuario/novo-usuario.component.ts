@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@a
 import { minusculoValidator } from './minusculo.validator';
 import { NovoUsuario } from './novo-usuario';
 import { NovoUsuarioService } from './novo-usuario.service';
+import { ConfirmPasswordValidator } from './confirmar-senha.validator';
 import { UsuarioExisteService } from './usuario-existe.service';
 
 @Component({
@@ -25,7 +26,10 @@ export class NovoUsuarioComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       userName: ['', [Validators.required, minusculoValidator], [this.usuarioExistenteService.usuarioJaExiste()]],
       password: ['', [Validators.required, Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/)]],
-      //repeatPassword: ['', [Validators.required]],
+      confirmPassword: ['', [Validators.required]],
+    },
+    {
+      validator: ConfirmPasswordValidator("password", "confirmPassword")
     });
   }
 

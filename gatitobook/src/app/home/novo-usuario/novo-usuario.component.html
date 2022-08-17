@@ -82,23 +82,21 @@
       mensagem="A senha deve conter pelo menos 6 dígitos, 1 letra e 1 número"
     ></app-mensagem>
   </div>
-  <!--
   <div class="form-group">
     <input
       class="form-control"
-      placeholder="Repetir Senha"
-      formControlName="repeatPassword"
+      placeholder="Repita a senha"
+      formControlName="confirmPassword"
       type="password"
     />
     <app-mensagem
       *ngIf="
-        novoUsuarioForm.get('repeatPassword')?.errors?.['required'] &&
-        novoUsuarioForm.get('repeatPassword')?.touched
+        novoUsuarioForm.get('confirmPassword')?.errors?.['confirmPasswordValidator'] &&
+        novoUsuarioForm.get('confirmPassword')?.touched
       "
-      mensagem="Campo obrigatório"
+      mensagem="Senha incorreta"
     ></app-mensagem>
   </div>
-  -->
 
   <button class="btn btn-primary btn-block">Cadastrar</button>
 </form>
