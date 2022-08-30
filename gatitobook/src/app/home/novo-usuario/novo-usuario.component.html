@@ -91,6 +91,13 @@
     />
     <app-mensagem
       *ngIf="
+        novoUsuarioForm.get('confirmPassword')?.errors?.['required'] &&
+        novoUsuarioForm.get('confirmPassword')?.touched
+      "
+    mensagem="Campo obrigatório"
+    ></app-mensagem>
+    <app-mensagem
+      *ngIf="
         novoUsuarioForm.get('confirmPassword')?.errors?.['confirmPasswordValidator'] &&
         novoUsuarioForm.get('confirmPassword')?.touched
       "
